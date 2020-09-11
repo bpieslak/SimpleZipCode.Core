@@ -14,7 +14,7 @@ build:
 
 # scripts to run after build
 after_build:
-  - nuget pack .\SimpleZipCode\SimpleZipCode.csproj -properties Configuration=Release
+  - nuget pack .\SimpleZipCode.Core\SimpleZipCode.Core.csproj -properties Configuration=Release
 
 test:
   assemblies:

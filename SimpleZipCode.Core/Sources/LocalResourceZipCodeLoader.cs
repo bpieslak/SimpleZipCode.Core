@@ -1,9 +1,9 @@
-﻿using SimpleZipCode.Properties;
+﻿using SimpleZipCode.Core.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SimpleZipCode.Sources
+namespace SimpleZipCode.Core.Sources
 {
     public sealed class LocalResourceZipCodeLoader
     {

@@ -1,9 +1,9 @@
-﻿using SimpleZipCode.Repos;
-using SimpleZipCode.Sources;
+﻿using SimpleZipCode.Core.Repos;
+using SimpleZipCode.Core.Sources;
 using System;
 using System.Collections.Generic;
 
-namespace SimpleZipCode
+namespace SimpleZipCode.Core
 {
     public class ZipCodeSource
     {

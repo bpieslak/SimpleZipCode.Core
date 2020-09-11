@@ -1,11 +1,10 @@
 ﻿using NUnit.Framework;
-using Should;
-using SimpleZipCode;
-using SimpleZipCode.Repos;
+using SimpleZipCode.Core;
+using SimpleZipCode.Core.Repos;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SimpleZipeCode.Tests.Unit
+namespace SimpleZipCode.Core.Tests.Unit
 {
     [TestFixture]
     public class ZipCodeRepoTests
@@ -23,13 +22,13 @@ namespace SimpleZipeCode.Tests.Unit
         {
             var zipCode = _zipCodeRepo.Get("81602");
 
-            zipCode.PostalCode.ShouldEqual("81602");
-            zipCode.PlaceName.ShouldEqual("Glenwood Springs");
-            zipCode.State.ShouldEqual("Colorado");
-            zipCode.StateAbbreviation.ShouldEqual("CO");
-            zipCode.County.ShouldEqual("Garfield");
-            zipCode.Latitude.ShouldEqual(39.5117);
-            zipCode.Longitude.ShouldEqual(-107.3253);
+            Assert.Equals(zipCode.PostalCode, "81602");
+            Assert.Equals(zipCode.PlaceName, "Glenwood Springs");
+            Assert.Equals(zipCode.State, "Colorado");
+            Assert.Equals(zipCode.StateAbbreviation, "CO");
+            Assert.Equals(zipCode.County, "Garfield");
+            Assert.Equals(zipCode.Latitude, 39.5117);
+            Assert.Equals(zipCode.Longitude, -107.3253);
         }
 
         [Test]
@@ -39,14 +38,14 @@ namespace SimpleZipeCode.Tests.Unit
                 .Search(x => x.PlaceName == "Glenwood Springs")
                 .ToList();
 
-            searchResults.Count.ShouldEqual(1);
-            searchResults[0].PostalCode.ShouldEqual("81602");
-            searchResults[0].PlaceName.ShouldEqual("Glenwood Springs");
-            searchResults[0].State.ShouldEqual("Colorado");
-            searchResults[0].StateAbbreviation.ShouldEqual("CO");
-            searchResults[0].County.ShouldEqual("Garfield");
-            searchResults[0].Latitude.ShouldEqual(39.5117);
-            searchResults[0].Longitude.ShouldEqual(-107.3253);
+            Assert.Equals(searchResults.Count, 1);
+            Assert.Equals(searchResults[0].PostalCode, "81602");
+            Assert.Equals(searchResults[0].PlaceName, "Glenwood Springs");
+            Assert.Equals(searchResults[0].State, "Colorado");
+            Assert.Equals(searchResults[0].StateAbbreviation, "CO");
+            Assert.Equals(searchResults[0].County, "Garfield");
+            Assert.Equals(searchResults[0].Latitude, 39.5117);
+            Assert.Equals(searchResults[0].Longitude, -107.3253);
         }
 
         [Test]
@@ -57,15 +56,15 @@ namespace SimpleZipeCode.Tests.Unit
                 .RadiusSearch(zipCode, 4)
                 .ToList();
 
-            searchResults.Count.ShouldEqual(2);
-            searchResults[0].PostalCode.ShouldEqual("81611");
-            searchResults[1].PostalCode.ShouldEqual("81612");
+            Assert.Equals(searchResults.Count, 2);
+            Assert.Equals(searchResults[0].PostalCode, "81611");
+            Assert.Equals(searchResults[1].PostalCode, "81612");
         }
 
         [Test]
         public void Should_get_default_value_for_zipCode_by_PostalCode()
         {
-            _zipCodeRepo.Get("99999").ShouldBeNull();
+            Assert.IsNull(_zipCodeRepo.Get("99999"));
         }
 
         private List<ZipCode> GetZipCodes()

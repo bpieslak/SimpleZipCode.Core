@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SimpleZipCode</id>
+    <version>$version$</version>
+    <title>SimpleZipCode</title>
+    <authors>alexm</authors>
+    <owners>alexm</owners>
+    <projectUrl>https://github.com/bpieslak/simplezipcode.core</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Fork of https://github.com/alexmaris/simplezipcode to support dotnet core.</description>
+    <copyright>Copyright 2020</copyright>
+    <tags>ZipCode US zip code search radius</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\SimpleZipCode.Core.dll" target="lib\netcoreapp2.2\SimpleZipCode.Core.dll" />
+    <file src="bin\Release\SimpleZipCode.Core.pdb" target="lib\netcoreapp2.2\SimpleZipCode.Core.pdb" />
+  </files>
+</package>

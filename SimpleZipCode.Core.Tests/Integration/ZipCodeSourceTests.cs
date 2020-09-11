@@ -1,9 +1,8 @@
 ﻿using NUnit.Framework;
-using Should;
-using SimpleZipCode;
+using SimpleZipCode.Core;
 using System.Linq;
 
-namespace SimpleZipeCode.Tests.Integration
+namespace SimpleZipCode.Core.Tests.Integration
 {
     [TestFixture]
     public class ZipCodeSourceTests
@@ -23,7 +22,7 @@ namespace SimpleZipeCode.Tests.Integration
             var zipCode = _zipCodeRepo.Get("60606");
             var results = _zipCodeRepo.RadiusSearch(zipCode, 1).ToList();
 
-            results.Count.ShouldEqual(9);
+            Assert.Equals(results.Count, 9);
         }
     }
 }
