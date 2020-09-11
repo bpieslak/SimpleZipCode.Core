@@ -50,13 +50,13 @@ namespace SimpleZipCode.Core.Tests.Unit
             var zipCodes = LoadZipCodes();
             var result = zipCodes.First();
 
-            Assert.Equals(result.PostalCode, "12345");
-            Assert.Equals(result.PlaceName, "Springfield");
-            Assert.Equals(result.State, "TV Land");
-            Assert.Equals(result.StateAbbreviation, "ZZ");
-            Assert.Equals(result.County, "Cook");
-            Assert.Equals(result.Latitude, 41.8868);
-            Assert.Equals(result.Longitude, -87.6386);
+            Assert.AreEqual(result.PostalCode, "12345");
+            Assert.AreEqual(result.PlaceName, "Springfield");
+            Assert.AreEqual(result.State, "TV Land");
+            Assert.AreEqual(result.StateAbbreviation, "ZZ");
+            Assert.AreEqual(result.County, "Cook");
+            Assert.AreEqual(result.Latitude, 41.8868);
+            Assert.AreEqual(result.Longitude, -87.6386);
         }
 
         private List<ZipCode> LoadZipCodes()

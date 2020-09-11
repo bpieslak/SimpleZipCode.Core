@@ -22,13 +22,13 @@ namespace SimpleZipCode.Core.Tests.Unit
         {
             var zipCode = _zipCodeRepo.Get("81602");
 
-            Assert.Equals(zipCode.PostalCode, "81602");
-            Assert.Equals(zipCode.PlaceName, "Glenwood Springs");
-            Assert.Equals(zipCode.State, "Colorado");
-            Assert.Equals(zipCode.StateAbbreviation, "CO");
-            Assert.Equals(zipCode.County, "Garfield");
-            Assert.Equals(zipCode.Latitude, 39.5117);
-            Assert.Equals(zipCode.Longitude, -107.3253);
+            Assert.AreEqual(zipCode.PostalCode, "81602");
+            Assert.AreEqual(zipCode.PlaceName, "Glenwood Springs");
+            Assert.AreEqual(zipCode.State, "Colorado");
+            Assert.AreEqual(zipCode.StateAbbreviation, "CO");
+            Assert.AreEqual(zipCode.County, "Garfield");
+            Assert.AreEqual(zipCode.Latitude, 39.5117);
+            Assert.AreEqual(zipCode.Longitude, -107.3253);
         }
 
         [Test]
@@ -38,14 +38,14 @@ namespace SimpleZipCode.Core.Tests.Unit
                 .Search(x => x.PlaceName == "Glenwood Springs")
                 .ToList();
 
-            Assert.Equals(searchResults.Count, 1);
-            Assert.Equals(searchResults[0].PostalCode, "81602");
-            Assert.Equals(searchResults[0].PlaceName, "Glenwood Springs");
-            Assert.Equals(searchResults[0].State, "Colorado");
-            Assert.Equals(searchResults[0].StateAbbreviation, "CO");
-            Assert.Equals(searchResults[0].County, "Garfield");
-            Assert.Equals(searchResults[0].Latitude, 39.5117);
-            Assert.Equals(searchResults[0].Longitude, -107.3253);
+            Assert.AreEqual(searchResults.Count, 1);
+            Assert.AreEqual(searchResults[0].PostalCode, "81602");
+            Assert.AreEqual(searchResults[0].PlaceName, "Glenwood Springs");
+            Assert.AreEqual(searchResults[0].State, "Colorado");
+            Assert.AreEqual(searchResults[0].StateAbbreviation, "CO");
+            Assert.AreEqual(searchResults[0].County, "Garfield");
+            Assert.AreEqual(searchResults[0].Latitude, 39.5117);
+            Assert.AreEqual(searchResults[0].Longitude, -107.3253);
         }
 
         [Test]
@@ -56,9 +56,9 @@ namespace SimpleZipCode.Core.Tests.Unit
                 .RadiusSearch(zipCode, 4)
                 .ToList();
 
-            Assert.Equals(searchResults.Count, 2);
-            Assert.Equals(searchResults[0].PostalCode, "81611");
-            Assert.Equals(searchResults[1].PostalCode, "81612");
+            Assert.AreEqual(searchResults.Count, 2);
+            Assert.AreEqual(searchResults[0].PostalCode, "81611");
+            Assert.AreEqual(searchResults[1].PostalCode, "81612");
         }
 
         [Test]

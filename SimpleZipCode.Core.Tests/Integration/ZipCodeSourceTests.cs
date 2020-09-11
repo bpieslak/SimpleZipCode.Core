@@ -22,7 +22,7 @@ namespace SimpleZipCode.Core.Tests.Integration
             var zipCode = _zipCodeRepo.Get("60606");
             var results = _zipCodeRepo.RadiusSearch(zipCode, 1).ToList();
 
-            Assert.Equals(results.Count, 9);
+            Assert.AreEqual(results.Count, 9);
         }
     }
 }
