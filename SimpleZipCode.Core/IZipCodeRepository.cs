@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace SimpleZipCode
+namespace SimpleZipCode.Core
 {
     public interface IZipCodeRepository
     {

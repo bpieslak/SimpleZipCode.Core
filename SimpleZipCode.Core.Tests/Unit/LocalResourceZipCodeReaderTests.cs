@@ -1,11 +1,10 @@
 ﻿using NUnit.Framework;
-using Should;
-using SimpleZipCode;
-using SimpleZipCode.Sources;
+using SimpleZipCode.Core;
+using SimpleZipCode.Core.Sources;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SimpleZipeCode.Tests.Unit
+namespace SimpleZipCode.Core.Tests.Unit
 {
     [TestFixture]
     public class LocalResourceZipCodeReaderTests
@@ -27,25 +26,22 @@ namespace SimpleZipeCode.Tests.Unit
         [Test]
         public void Should_skip_header_line()
         {
-            LoadZipCodes()
-                .Any(z => z.PostalCode == "Postal Code")
-                .ShouldBeFalse();
+            Assert.IsFalse(LoadZipCodes()
+                .Any(z => z.PostalCode == "Postal Code"));
         }
 
         [Test]
         public void Should_skip_empty_lines()
         {
-            LoadZipCodes()
-                .Any(z => string.IsNullOrEmpty(z.PostalCode))
-                .ShouldBeFalse();
+            Assert.IsFalse(LoadZipCodes()
+                .Any(z => string.IsNullOrEmpty(z.PostalCode)));
         }
 
         [Test]
         public void Should_skip_lines_with_no_postal_code()
         {
-            LoadZipCodes()
-                .Any(z => z.PlaceName == "No Postal Code")
-                .ShouldBeFalse();
+            Assert.IsFalse(LoadZipCodes()
+                .Any(z => z.PlaceName == "No Postal Code"));
         }
 
         [Test]
@@ -54,13 +50,13 @@ namespace SimpleZipeCode.Tests.Unit
             var zipCodes = LoadZipCodes();
             var result = zipCodes.First();
 
-            result.PostalCode.ShouldEqual("12345");
-            result.PlaceName.ShouldEqual("Springfield");
-            result.State.ShouldEqual("TV Land");
-            result.StateAbbreviation.ShouldEqual("ZZ");
-            result.County.ShouldEqual("Cook");
-            result.Latitude.ShouldEqual(41.8868);
-            result.Longitude.ShouldEqual(-87.6386);
+            Assert.AreEqual(result.PostalCode, "12345");
+            Assert.AreEqual(result.PlaceName, "Springfield");
+            Assert.AreEqual(result.State, "TV Land");
+            Assert.AreEqual(result.StateAbbreviation, "ZZ");
+            Assert.AreEqual(result.County, "Cook");
+            Assert.AreEqual(result.Latitude, 41.8868);
+            Assert.AreEqual(result.Longitude, -87.6386);
         }
 
         private List<ZipCode> LoadZipCodes()

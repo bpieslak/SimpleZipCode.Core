@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace SimpleZipCode.Repos
+namespace SimpleZipCode.Core.Repos
 {
     public class ZipCodeRepo : IZipCodeRepository
     {

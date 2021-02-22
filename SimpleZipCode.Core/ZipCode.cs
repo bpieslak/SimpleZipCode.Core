@@ -1,4 +1,4 @@
-﻿namespace SimpleZipCode
+﻿namespace SimpleZipCode.Core
 {
     public class ZipCode
     {
